@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Master Template</title>
+
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; }
+
+    /* Layout wrapper */
+    .layout { min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* Header */
+    .header {
+      background: #222;
+      color: #fff;
+      padding: 18px 20px;
+    }
+    .header h1 { margin: 0; font-size: 22px; }
+    .header p { margin: 6px 0 0; font-size: 14px; opacity: 0.9; }
+
+    /* Navbar */
+    .navbar { background: #333; }
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .navbar li { margin: 0; }
+    .navbar a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 16px;
+    }
+    .navbar a:hover { background: #444; }
+
+    .main { flex: 1; display: flex; gap: 16px; padding: 16px; }
+
+  
+    .sidebar {
+      width: 240px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .sidebar h3 { margin: 0 0 10px; font-size: 16px; }
+    .sidebar ul { list-style: none; margin: 0; padding: 0; }
+    .sidebar li a {
+      display: block;
+      padding: 10px 10px;
+      text-decoration: none;
+      color: #222;
+      border-radius: 6px;
+    }
+    .sidebar li a:hover { background: #f0f0f0; }
+
+    /* Content */
+    .content {
+      flex: 1;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .content h2 { margin-top: 0; }
+
+    
+    .footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+
+   
+    @media (max-width: 768px) {
+      .main { flex-direction: column; }
+      .sidebar { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="layout">
+
+    <!-- HEADER (same on every page) -->
+    <div class="header">
+      <h1>My Website</h1>
+      <p>Master Template Layout (Header + Navbar + Sidebar + Footer)</p>
+    </div>
+
+    <!-- NAVBAR (same on every page) -->
+    <div class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- MAIN (Sidebar + Page Content changes) -->
+    <div class="main">
+
+      <!-- SIDEBAR (same on every page OR can be reused) -->
+      <div class="sidebar">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="settings.html">Settings</a></li>
+        </ul>
+      </div>
+
+      <!-- CONTENT (this part changes per page) -->
+      <div class="content">
+        <h2>Page Title</h2>
+        <p>
+          This is the content area. On different pages, only this section changes.
+          Header, Navbar, Sidebar, and Footer remain the same.
+        </p>
+
+        <p>
+          Example pages: Home, About, Services, Contact — all reuse this same template.
+        </p>
+      </div>
+
+    </div>
+
+    
+    <div class="footer">
+      © 2026 My Website | All Rights Reserved
+    </div>
+
+  </div>
+
+</body>
+</html>

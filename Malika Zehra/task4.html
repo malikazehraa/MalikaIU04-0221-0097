@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Signup Form → Table</title>
+
+  <style>
+    * { box-sizing: border-box;}
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .box { max-width: 600px; margin: auto; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+    label { display: block; margin-top: 10px; }
+    input, select { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 15px; padding: 10px; width: 100%; cursor: pointer; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f2f2f2; }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Signup Form</h2>
+
+  <form id="signupForm">
+    <label>First Name</label>
+    <input type="text" id="firstName" required />
+
+    <label>Last Name</label>
+    <input type="text" id="lastName" required />
+
+    <label>Email</label>
+    <input type="email" id="email" required />
+
+
+    <label>Date of Birth</label>
+    <input type="date" id="dob" required />
+
+    <label>Gender</label>
+    <select id="gender" required>
+      <option value="">Select</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <h3>Submitted Data</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>DOB</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- data will be inserted here -->
+    </tbody>
+  </table>
+</div>
+
+<script>
+  const form = document.getElementById("signupForm");
+  const tableBody = document.getElementById("tableBody");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // stop page reload
+
+    // Get values from inputs
+    const firstName = document.getElementById("firstName").value;
+    const lastName  = document.getElementById("lastName").value;
+    const email     = document.getElementById("email").value;
+    const dob       = document.getElementById("dob").value;
+    const gender    = document.getElementById("gender").value;
+
+    // Create a new row
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${firstName}</td>
+      <td>${lastName}</td>
+      <td>${email}</td>
+      <td>${dob}</td>
+      <td>${gender}</td>
+    `;
+
+   
+    tableBody.appendChild(row);
+    
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
